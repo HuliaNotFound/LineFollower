@@ -2,17 +2,15 @@
 #define irSensorLeft 2
 #define irSensorRight 3
 
-#define motorSpeed 180
+#define motorSpeed 140
 
 //left motor
-//#define enableLeftMotor x
-#define leftMotorPin1 9
-#define leftMotorPin2 8
+#define leftMotorPin1 10
+#define leftMotorPin2 9
 
 //right motor
-//#define enableRightMotor x
-#define rightMotorPin1 7
-#define rightMotorPin2 6
+#define rightMotorPin1 6
+#define rightMotorPin2 5
 
 void setup() {
   //setup code that only runs once, when the code starts
@@ -51,61 +49,52 @@ void loop() {
   else 
   {
     stop();
-    delay(200);
   }
-
+  delay(20);
 }
 
 void forward()
 {
-  //analogWrite(enableLeftMotor, abs(motorSpeed));  
-  //analogWrite(enableRightMotor, abs(motorSpeed));
   //left motor
-  digitalWrite(leftMotorPin1, LOW);
-  digitalWrite(leftMotorPin2, HIGH); 
+  analogWrite(leftMotorPin1, motorSpeed);
+  digitalWrite(leftMotorPin2, LOW); 
   //right motor
-  digitalWrite(rightMotorPin1, HIGH);
+  analogWrite(rightMotorPin1, motorSpeed);
   digitalWrite(rightMotorPin2, LOW);  
-  delay(500);
+  //delay(800);
 }
 
 void left()
 {
-  //analogWrite(enableLeftMotor, abs(motorSpeed));  
-  //analogWrite(enableRightMotor, abs(motorSpeed));
   //left motor
-  digitalWrite(leftMotorPin1, HIGH);
-  digitalWrite(leftMotorPin2, LOW);  
+  digitalWrite(leftMotorPin1, LOW);
+  analogWrite(leftMotorPin2, motorSpeed);  
   //right motor
-  digitalWrite(rightMotorPin1, HIGH);
+  analogWrite(rightMotorPin1, motorSpeed);
   digitalWrite(rightMotorPin2, LOW);
-  delay(500);
+  //delay(800);
 }
 
 void right()
 {
-  //analogWrite(enableLeftMotor, abs(motorSpeed));  
-  //analogWrite(enableRightMotor, abs(motorSpeed));
   //left motor
-  digitalWrite(leftMotorPin1, LOW);
-  digitalWrite(leftMotorPin2, HIGH);  
+  analogWrite(leftMotorPin1, motorSpeed);
+  digitalWrite(leftMotorPin2, LOW);  
   //right motor
   digitalWrite(rightMotorPin1, LOW);
-  digitalWrite(rightMotorPin2, HIGH);
-  delay(500);
+  analogWrite(rightMotorPin2, motorSpeed);
+  //delay(800);
 }
 
 void backward()
 {
-  //analogWrite(enableLeftMotor, abs(motorSpeed));  
-  //analogWrite(enableRightMotor, abs(motorSpeed));
   //left motor
-  digitalWrite(leftMotorPin1, HIGH);
-  digitalWrite(leftMotorPin2, LOW);  
+  digitalWrite(leftMotorPin1, LOW);
+  analogWrite(leftMotorPin2, motorSpeed);  
   //right motor
   digitalWrite(rightMotorPin1, LOW);
-  digitalWrite(rightMotorPin2, HIGH);  
-  delay(500);
+  analogWrite(rightMotorPin2, motorSpeed);  
+  //delay(800);
 }
 
 void stop()
@@ -116,7 +105,7 @@ void stop()
   //right motor
   digitalWrite(rightMotorPin1, LOW);
   digitalWrite(rightMotorPin2, LOW);  
-  delay(700);
+  //delay(2000);
 }
 
 
